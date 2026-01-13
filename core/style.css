@@ -1,0 +1,55 @@
+:root { 
+    --primary: #6366f1; 
+    --bg: #0f172a; 
+    --card: #1e293b; 
+    --text: #e2e8f0; 
+}
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: var(--bg); 
+    color: var(--text); 
+    margin: 0; 
+    padding: 20px; 
+}
+
+.container { max-width: 900px; margin: 0 auto; }
+header { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
+h1 { margin: 0; color: var(--primary); }
+.subtitle { color: #94a3b8; font-size: 0.9em; }
+.desc { color: #94a3b8; font-size: 0.9em; }
+
+/* Grid Layout */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+/* Cards */
+.card { background-color: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
+.card h2 { margin-top: 0; border-bottom: 1px solid #334155; padding-bottom: 10px; font-size: 1.2rem; }
+
+/* Form Elements */
+input, button { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: none; box-sizing: border-box; }
+input { background: #334155; color: white; }
+button { background-color: var(--primary); color: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
+button:hover { background-color: #4f46e5; }
+
+#previewArea { margin: 10px 0; text-align: center; }
+#previewArea img { max-height: 150px; border-radius: 8px; }
+
+/* Blockchain Visualization */
+.chain-container { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.block { background: #334155; padding: 15px; border-radius: 8px; border-left: 5px solid var(--primary); font-family: monospace; font-size: 0.85rem; position: relative; }
+.block p { margin: 5px 0; word-break: break-all; }
+.block::before { content: '🔗'; position: absolute; top: -18px; left: 20px; font-size: 14px; }
+.block:first-child::before { content: ''; }
+
+.hash-display { font-family: monospace; color: #bef264; word-break: break-all; font-size: 0.9em; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; display: none; }
+
+.status { padding: 10px; border-radius: 6px; margin-top: 10px; display: none; text-align: center; }
+.success { background: #064e3b; color: #6ee7b7; }
+.error { background: #450a0a; color: #fca5a5; }
+
+/* Diagram helpers */
+.concept-tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.7em; margin-left: 5px; }
+.c-crypto { background: #ec4899; color: white; }
+.c-sc { background: #f59e0b; color: black; }

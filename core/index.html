@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof of Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Proof of Design</h1>
+        <p class="subtitle">Platform Autentikasi Kreator Via Blockchain</p>
+    </header>
+
+    <div class="grid">
+          <div class="card">
+              <h2>1. Upload & Hashing <span class="concept-tag c-crypto">Kriptografi</span></h2>
+              <p class="desc">Hubungkan dompet, lalu unggah file logo. Sistem akan menghitung SHA-256 Hash.</p>
+              
+              <div style="background: #334155; padding: 10px; border-radius: 6px; margin-bottom: 15px;">
+                  <p style="margin:0 0 5px 0; font-size:0.8em; color:#94a3b8;">Identitas Pemilik:</p>
+                  <div id="walletAddress" style="font-family:monospace; color:#bef264; word-break:break-all;">Belum Terhubung</div>
+                  <button id="btnConnect" style="margin-top:5px; background:#475569;">Connect MetaMask</button>
+              </div>
+
+              <input type="file" id="fileInput" accept="image/*" disabled> <div id="previewArea"></div>
+              
+              <div id="hashResult" class="hash-display">
+                  Calculating Hash...
+              </div>
+
+              <button id="btnRegister" style="display:none;">Daftarkan ke Blockchain</button>
+              <div id="statusMsg" class="status"></div>
+          </div>
+
+        <div class="card">
+            <h2>2. Ledger Blockchain <span class="concept-tag c-sc">Smart Contract</span></h2>
+            <p class="desc">Data yang valid akan dicatat di sini dan tidak bisa diubah (Immutable).</p>
+            <div id="blockchainDisplay" class="chain-container">
+                <div class="block">
+                    <p><strong>BLOCK #0 (Genesis)</strong></p>
+                    <p>Hash: 000000000000000000000</p>
+                    <p>Prev Hash: 0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: flex; gap: 10px;">
+    <button id="btnRegister" style="display:none; background: var(--primary);">Daftarkan ke Blockchain</button>
+    <button id="btnVerify" style="display:none; background: #d97706;">🔍 Cek Keaslian Saja</button>
+</div>
+
+<script src="script.js"></script>
+
+<div style="text-align: center; margin-top: 30px;">
+    <button onclick="resetBlockchain()" style="background: #ef4444; width: auto; padding: 10px 20px;">
+        Reset Semua Data Blockchain
+    </button>
+</div>
+
+<script>
+    function resetBlockchain() {
+        if(confirm("Yakin ingin menghapus semua data simulasi?")) {
+            localStorage.removeItem('sim_blockchain');
+            localStorage.removeItem('sim_hashes');
+            location.reload();
+        }
+    }
+</script>
+
+</body>
+</html>
